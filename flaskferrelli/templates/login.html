@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottm mb-4" style="color:#FF0000">Login</legend>
+                <!-- start of form fields (from RegistrationForm python class) -->
+
+                <!-- div for email field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.email.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for email field-->
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- div for password field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.password.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for password field-->
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div> <br>
+                <!-- end of form fields -->
+
+            </fieldset>
+
+            <div class="form-group">
+                <!-- div for submit field with Bootstrap for button and form-group -->
+                {{ form.submit(class="btn btn-outline-danger")}}
+            </div>
+
+        </form>
+    </div>
+    <div class="content-section">
+        <small class="text-muted">
+            Don't Have An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Here</a>
+        </small>
+    </div>
+{% endblock %}

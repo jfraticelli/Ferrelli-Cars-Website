@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottm mb-4" style="color:#FF0000">Join Today</legend>
+                <!-- start of form fields (from RegistrationForm python class) -->
+
+                <!-- div for username field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.username.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for username field-->
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                {% print error %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- div for email field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.email.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for email field-->
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                {% print error %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- div for password field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.password.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for password field-->
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                {% print error %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- div for confirm_password field with form_group Bootstrap-->
+                <div class="form_group">
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    <!-- conditional to check and print validation errors for confirm_password field-->
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                {% print error %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div> <br>
+                <!-- end of form fields -->
+            </fieldset>
+
+            <div class="form-group">
+                <!-- div for submit field with Bootstrap for button and form-group -->
+                {{ form.submit(class="btn btn-outline-danger")}}
+            </div>
+
+        </form>
+    </div>
+    <div class="content-section">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+    </div>
+{% endblock %}

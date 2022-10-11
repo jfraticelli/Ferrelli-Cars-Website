@@ -1,0 +1,109 @@
+.gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.inventory{
+    position: relative;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px darkgrey;
+}
+
+.inventory img{
+    width: 320px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.rental_message h1{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.inventory::before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: -30%;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+}
+
+.r34::before{
+    content: "2002 R34 GTR";
+}
+
+.hondansx::before{
+    content: "2004 Honda NSX";
+}
+
+.porchegt2rs::before{
+    content: "2019 Porche 991 GT2RS";
+}
+
+.fordgt::before{
+    content: "2020 Ford GT";
+}
+
+.mclarensenna::before{
+    content: "2021 McLaren Senna";
+}
+
+.r35gtr::before{
+    content: "2022 R35 Nismo GTR";
+}
+
+.laferrari::before{
+    content: "2015 Ferrari LaFerrari";
+}
+
+.svj::before{
+    content: "2021 Lamborghini Aventador SVJ";
+}
+
+.inventory:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+.inventory:hover::after{
+    height: 100%;
+}
+
+.inventory:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}

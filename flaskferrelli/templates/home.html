@@ -1,0 +1,88 @@
+{% extends "base.html"%}
+
+{% block head %}
+
+<!-- link css stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static',filename='css/slides.css') }}">
+
+<style>
+	h1{
+		color: white;
+        text-shadow:
+        	-1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;  
+        color: white;
+        font-family: sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+		font-style: italic;
+        margin-left: -225px;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- image slider -->
+<div class="slider">
+	<div class="slides">
+
+		<!-- radio buttons -->
+		<input type="radio" name="radio-btn" id="radio1">
+		<input type="radio" name="radio-btn" id="radio2">
+		<input type="radio" name="radio-btn" id="radio3">
+		<input type="radio" name="radio-btn" id="radio4">
+
+		<!-- slide images -->
+		<div class="slide first">
+			<img src="{{ url_for('static', filename='images/r34.jpeg')}}" alt="">
+		</div>
+		<div class="slide">
+			<img src="{{ url_for('static', filename='images/hondansx.webp')}}" alt="">
+		</div>
+		<div class="slide">
+			<img src="{{ url_for('static', filename='images/991gt2rs.webp')}}" alt="">
+		</div>
+		<div class="slide">
+			<img src="{{ url_for('static', filename='images/fordgt.jpeg')}}" alt="">
+		</div>
+
+		<!-- automatic navigation -->
+		<div class="'navigation-auto">
+			<div class="auto-btn1"></div>
+			<div class="auto-btn2"></div>
+			<div class="auto-btn3"></div>
+			<div class="auto-btn4"></div>
+		</div>
+
+	</div>
+
+	<!-- manual navigation -->
+	<div class="navigation-manual">
+		<label for="radio1" class="manual-btn"></label>
+		<label for="radio2" class="manual-btn"></label>
+		<label for="radio3" class="manual-btn"></label>
+		<label for="radio4" class="manual-btn"></label>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	var counter = 1;
+	setInterval(function(){
+		document.getElementById('radio' + counter).checked = true;
+		counter++;
+		if(counter > 4){
+			counter = 1;
+		}
+	}, 5000);
+</script>
+
+<h1 style="margin: auto; margin-top: 10px; text-align:center; font-size:35px"> 
+	Featured Stock in Ferrelli's Collection 
+</h1>
+
+{% endblock content %}

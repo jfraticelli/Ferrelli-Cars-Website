@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottm mb-1" style="color:#FF0000">Checkout Now</legend>
+            <!-- start of form fields (from RegistrationForm python class) -->
+
+            <!-- div for password field with form_group Bootstrap-->
+            <div class="form_group">
+                {{ form.year.label(class="form-control-label") }}
+                <!-- conditional to check and print validation errors for password field-->
+                {% if form.year.errors %}
+                    {{ form.year(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.year.errors %}
+                            {% print error %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.year(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <!-- div for password field with form_group Bootstrap-->
+            <div class="form_group">
+                {{ form.makemodel.label(class="form-control-label") }}
+                <!-- conditional to check and print validation errors for password field-->
+                {% if form.makemodel.errors %}
+                    {{ form.makemodel(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.makemodel.errors %}
+                            {% print error %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.makemodel(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+
+            <!-- div for password field with form_group Bootstrap-->
+            <div class="form_group">
+                {{ form.price.label(class="form-control-label") }}
+                <!-- conditional to check and print validation errors for password field-->
+                {% if form.price.errors %}
+                    {{ form.price(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.price.errors %}
+                            {% print error %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.price(class="form-control form-control-lg") }}
+                {% endif %}
+            </div> 
+
+            <!-- div for creditcard field with form_group Bootstrap-->
+            <div class="form_group">
+              {{ form.creditcard.label(class="form-control-label") }}
+              <!-- conditional to check and print validation errors for email field-->
+              {% if form.creditcard.errors %}
+                  {{ form.creditcard(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.creditcard.errors %}
+                          {% print error %}
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.creditcard(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+
+            <!-- div for datetime field with form_group Bootstrap-->
+            <div class="form_group">
+
+                <!-- start date field -->
+                {{ form.startdate.label(class="form-control-label") }}
+                <!-- conditional to check and print validation errors for startdate field-->
+                {% if form.startdate.errors %}
+                    {{ form.startdate(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.startdate.errors %}
+                            {% print error %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.startdate(class="form-control form-control-lg") }}
+                {% endif %}
+
+                <!-- end date field -->
+                {{ form.enddate.label(class="form-control-label") }}
+                <!-- conditional to check and print validation errors for enddate field-->
+                {% if form.enddate.errors %}
+                    {{ form.enddate(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.enddate.errors %}
+                            {% print error %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.enddate(class="form-control form-control-lg") }}
+                {% endif %}
+
+            </div> <br>
+
+        <!-- end of form fields -->
+
+        </fieldset>
+
+        <div class="form-group">
+            <!-- div for submit field with Bootstrap for button and form-group -->
+            {{ form.submit(class="btn btn-outline-danger")}}
+        </div>
+
+    </form>
+</div>
+{% endblock content %}

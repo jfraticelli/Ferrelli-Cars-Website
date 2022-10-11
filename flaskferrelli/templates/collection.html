@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+    <!-- link css stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/inventory.css') }}">
+
+{% endblock %}
+{% block content %}
+    <div class="gallery">
+        <a href="{{ url_for('checkout') }}?year=2001&makemodel=Nissan R34 GTR&price=700" onclick="getr34()">
+            <div class="inventory r34">
+                <img src="{{ url_for('static', filename='images/r34.jpeg')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2004&makemodel=Honda NSX&price=600">
+            <div class="inventory hondansx">
+                <img src="{{ url_for('static', filename='images/hondansx.webp')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2019&makemodel=Porche 991 GT2RS&price=1000">
+            <div class="inventory porchegt2rs">
+                <img src="{{ url_for('static', filename='images/991gt2rs.webp')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2020&makemodel=Ford GT&price=1200">
+            <div class="inventory fordgt">
+                <img src="{{ url_for('static', filename='images/fordgt.jpeg')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2021&makemodel=McLaren Senna&price=1500">
+            <div class="inventory mclarensenna">
+                <img src="{{ url_for('static', filename='images/mclarensenna.jpeg')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2022&makemodel=Nissan R35 GTR Nismo&price=900">
+            <div class="inventory r35gtr">
+                <img src="{{ url_for('static', filename='images/r35gtr.jpeg')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2015&makemodel=Ferrari LaFerrari&price=2000">
+            <div class="inventory laferrari">
+                <img src="{{ url_for('static', filename='images/laferrari.jpeg')}}" alt="">
+            </div>
+        </a>
+        <a href="{{ url_for('checkout') }}?year=2021&makemodel=Lamborghini Aventador SVJ&price=1500">
+            <div class="inventory svj">
+                <img src="{{ url_for('static', filename='images/svj.jpeg')}}" alt="">
+            </div>
+        </a>
+    </div>
+    <div class="rental_message">
+        <h1> Select A Car To Rent Now </h1>
+    </div>
+
+{% endblock %}
